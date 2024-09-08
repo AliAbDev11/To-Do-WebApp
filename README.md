@@ -1,4 +1,4 @@
-# Microsoft To-Do Like Web App
+# To-Do Like Web App
 
 A simple To-Do List web application built with Django and MySQL, inspired by Microsoft To Do. The application allows users to manage their tasks, create multiple task lists, set priorities, due dates, reminders, and mark tasks as complete.
 
