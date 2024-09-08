@@ -10,15 +10,13 @@ A simple To-Do List web application built with Django and MySQL, inspired by Mic
   - Add tasks with titles, descriptions, and due dates.
   - Mark tasks as completed.
   - Edit and delete tasks.
-- **Task Reordering**: Reorder tasks within a task list (can be enhanced with Sortable.js).
 
 ## Tech Stack
 
 - **Backend**: Django (Python web framework)
 - **Database**: MySQL
-- **Frontend**: HTML, CSS, JavaScript (with optional usage of Sortable.js for drag-and-drop reordering)
+- **Frontend**: HTML, CSS, JavaScript
 - **Authentication**: Django's built-in authentication system
-- **Other**: Celery (optional for handling reminders and background tasks)
 
 ## Prerequisites
 
