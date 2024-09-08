@@ -1,17 +1,15 @@
 # To-Do Like Web App
 
-A simple To-Do List web application built with Django and MySQL, inspired by Microsoft To Do. The application allows users to manage their tasks, create multiple task lists, set priorities, due dates, reminders, and mark tasks as complete.
+A simple To-Do List web application built with Django and MySQL, inspired by Microsoft To Do. The application allows users to manage their tasks, create multiple task lists, due dates, and mark tasks as complete.
 
 ## Features
 
 - **User Authentication**: Register, login, and manage tasks specific to each user.
 - **Task Lists**: Organize tasks into different task lists.
 - **Tasks**: 
-  - Add tasks with titles, descriptions, priorities, due dates, and reminders.
+  - Add tasks with titles, descriptions, and due dates.
   - Mark tasks as completed.
   - Edit and delete tasks.
-- **Task Prioritization**: Set high, medium, or low priority for tasks.
-- **Task Reminders**: Option to set reminders for tasks (optional: requires celery for notifications).
 - **Task Reordering**: Reorder tasks within a task list (can be enhanced with Sortable.js).
 
 ## Tech Stack
