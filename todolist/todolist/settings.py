@@ -76,8 +76,12 @@ WSGI_APPLICATION = 'todolist.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'todo_db',    # Name of the MySQL database
+        'USER': 'root',         # Your MySQL username
+        'PASSWORD': '',     # Your MySQL password
+        'HOST': 'localhost',             # Database host, usually localhost
+        'PORT': '3306',                  # Default MySQL port
     }
 }
 
@@ -116,7 +120,16 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_URL = '/static/'  # Add a leading slash here
+
+STATICFILES_DIRS = [  # Correct the typo here
+    os.path.join(BASE_DIR, 'todo_app/static'),
+]
+
+#smedia files
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+# MEDIA_URL = '/media/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
