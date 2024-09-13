@@ -1,0 +1,15 @@
+.cl-newtask {
+    display: flex;
+    align-items: center;
+    border: 1px solid #0000001f;
+    border-radius: 6px;
+  }
+  .cl-newtask .input-group{
+    border: 0;
+    background: white;
+    color: black;
+  }
+  .cl-newtask .form-control{
+    border: 0;
+  }
+  
