@@ -30,5 +30,8 @@
   width: 0;
   border-right: 1px solid #e3e6f0;
   height: calc(4.375rem - 2rem);
-  margin: auto 1rem;
+  margin: auto 0rem;
+}
+.cl-sidebar {
+  width: 20rem !important;
 }
