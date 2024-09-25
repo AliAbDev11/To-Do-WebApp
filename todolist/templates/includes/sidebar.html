@@ -6,7 +6,7 @@
     <ul class="nav nav-pills flex-column mb-auto">
         {% for tasklist in Taskslist %}
         <li>
-            <a href="/tasks/{{ tasklist.id }}/" class="nav-link link-dark">
+            <a href="{% url 'task_detail' tasklist.id %}" class="nav-link link-dark">
                 <i class="bi bi-list-check"></i>
                 {{ tasklist.title }}
             </a>

@@ -16,9 +16,8 @@ class TaskListForm(forms.ModelForm):
 class TaskForm(forms.ModelForm):
     class Meta:
         model = Task
-        fields = ['title', 'completed', 'tasklist']  # Specify the fields to include in the form
+        fields = ['title', 'completed']  # Specify the fields to include in the form
         widgets = {
             'title': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Task Title'}),
             'completed': forms.CheckboxInput(attrs={'class': 'form-check-input'}),
-            'tasklist': forms.Select(attrs={'class': 'form-select'}),
         }
