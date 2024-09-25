@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'todo_app'
+    'todo_app',
+    'authentication'
 ]
 
 MIDDLEWARE = [
@@ -116,12 +117,12 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-# STATIC_URL = '/static/'  # Add a leading slash here
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_URL = '/static/'  # Add a leading slash here
 
-# STATICFILES_DIRS = [  # Correct the typo here
-#     os.path.join(BASE_DIR, 'lmsdashboard/static'),
-# ]
+STATICFILES_DIRS = [  # Correct the typo here
+    os.path.join(BASE_DIR, 'todolist/static'),
+]
 
 # #smedia files
 # MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
