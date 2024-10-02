@@ -1,0 +1,13 @@
+.cl-sidebar{
+    background-color: #343a40;
+    color: white;
+}
+.cl-card{
+    box-shadow: 1px 1px 5px 0px gray;
+}
+.cl-account{
+    background: linear-gradient(135deg, #212529 0%, #198754 100%);
+}
+a{
+    text-decoration: none;
+}
