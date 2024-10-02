@@ -58,3 +58,23 @@ def task_detail(request, id):
         'Tasks': Task.objects.filter(tasklist=tasklist),  # Show only tasks related to this task list
     }
     return render(request, 'pages/task_detail.html', context)
+
+def toggle_task_status(request, task_id):
+    task = get_object_or_404(Task, id=task_id)
+    task.completed = not task.completed  # Toggle the completed status
+    task.save()
+    return redirect('task_detail', task.tasklist.id)  # Redirect back to the task list
+
+def update_task(request, task_id):
+    task = get_object_or_404(Task, id=task_id)
+    if request.method == "POST":
+        task.title = request.POST.get("title")
+        task.description = request.POST.get("description", "")
+        task.save()
+        return redirect('task_detail', task.tasklist.id)
+
+def delete_task(request, task_id):
+    task = get_object_or_404(Task, id=task_id)
+    tasklist_id = task.tasklist.id  # Get the task list id before deleting
+    task.delete()
+    return redirect('task_detail', tasklist_id)
