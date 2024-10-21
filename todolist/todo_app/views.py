@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import TaskListForm, TaskForm
+from django.http import HttpResponse
+from django.urls import reverse
 from .models import *
 
 # Create your views here.
@@ -7,7 +9,7 @@ def index(request):
     context = {
         'Taskslist': TaskList.objects.all(),
     }
-    return render(request,'base.html', context)
+    return render(request,'pages/index.html', context)
 
 # View to handle adding a new task list
 def tasklist(request):
@@ -24,7 +26,7 @@ def tasklist(request):
         'TaskListForm': add_Tasklist,
         'Taskslist': TaskList.objects.all(),
     }
-    return render(request, 'base.html', context)
+    return render(request, 'pages/index.html', context)
 
 
 # View to handle displaying the details of a specific task list
@@ -78,3 +80,19 @@ def delete_task(request, task_id):
     tasklist_id = task.tasklist.id  # Get the task list id before deleting
     task.delete()
     return redirect('task_detail', tasklist_id)
+
+# Update task list view
+def update_tasklist(request, tasklist_id):
+    tasklist = get_object_or_404(TaskList, id=tasklist_id)
+    if request.method == 'POST':
+        new_title = request.POST.get('title')
+        tasklist.title = new_title
+        tasklist.save()
+        return redirect('index')  # Redirect to home or any page that lists the task lists
+
+# Delete task list view
+def delete_tasklist(request, tasklist_id):
+    tasklist = TaskList.objects.get(id=tasklist_id)
+    if request.method == 'POST':
+        tasklist.delete()
+        return redirect('tasklist') 
