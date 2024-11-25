@@ -98,7 +98,26 @@
 
         {% endfor %}
     </ul>
-
+    <div class="accordion" id="accordionExample">
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                Completed tasks
+            </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+                {% if completed_tasks %}
+                    {% for task in completed_tasks %}
+                        <label>{{ task.title }}</label><br>
+                    {% endfor %}
+                {% else %}
+                    <p>No completed tasks found.</p>
+                {% endif %}
+            </div>
+            </div>
+        </div>
+    </div>
     <!-- Task input form at the bottom -->
     <form method="POST" class="d-flex justify-content-center mt-4" action="{% url 'task_detail' tasklist.id %}">
         {% csrf_token %}
