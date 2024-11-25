@@ -33,7 +33,9 @@ def tasklist(request):
 def task_detail(request, id):
     # Fetch the task list by its ID or return a 404 if not found
     tasklist = get_object_or_404(TaskList, id=id)
-    
+    tasks = Task.objects.filter(tasklist=tasklist)  # All tasks in this task list
+    completed_tasks = tasks.filter(completed=True)  # Only completed tasks
+
     if request.method == "POST":
         print("POST request received")
         print(f"POST data: {request.POST}")
@@ -54,6 +56,7 @@ def task_detail(request, id):
 
     # Pass the selected task list to the template
     context = {
+        'completed_tasks': completed_tasks,
         'tasksform': add_task,
         'tasklist': tasklist,
         'Taskslist': TaskList.objects.all(),
