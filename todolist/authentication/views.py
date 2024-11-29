@@ -2,6 +2,7 @@ from django.contrib.auth import logout, authenticate, login
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib import messages
+from django.http import Http404
 from django.urls import reverse
 
 
@@ -40,3 +41,6 @@ def register(request):
 def logout_user(request):
     logout(request)  # This logs out the user
     return redirect(reverse('login'))  # Redirect to login page after logout
+
+def page_not_found(request, exception):
+    return render(request, '404.html', status=404)
