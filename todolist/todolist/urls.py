@@ -18,9 +18,13 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from django.conf.urls import handler404
+from authentication.views import page_not_found
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('todo_app.urls')),
     path('', include('authentication.urls')),
 ]+ static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
+
+handler404 = 'authentication.views.page_not_found'
