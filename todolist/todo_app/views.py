@@ -6,12 +6,16 @@ from django.urls import reverse
 from .models import *
 
 # Create your views here.
-@login_required
 def index(request):
+    # Check if the user is authenticated
+    if not request.user.is_authenticated:
+        # If the user is not authenticated, redirect them to the login page
+        return redirect('login')  # Make sure 'login' matches the name of your login URL pattern
+
     context = {
         'Taskslist': TaskList.objects.filter(user=request.user),  # Filter by logged-in user
     }
-    return render(request,'pages/index.html', context)
+    return render(request, 'pages/index.html', context)
 
 # View to handle adding a new task list
 @login_required
