@@ -7,6 +7,15 @@
     <div class="card col-md-4 cl-card">
         <div class="card-body">
             <h2 class="text-center">Login</h2>
+
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-danger">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+
             <form method="POST" action="{% url 'login' %}">
                 {% csrf_token %}
                 <div class="mb-3">
@@ -17,9 +26,9 @@
                     <label for="password" class="form-label">Password</label>
                     <input type="password" class="form-control" id="password" name="password" required>
                 </div>
-                <button type="submit" class="btn btn-primary w-100">Login</button>
+                <button type="submit" class="btn cl-bgbtn w-100">Login</button>
             </form>
-            <p class="text-center mt-3">Don't have an account? <a href="{% url 'register' %}">Register</a></p>
+            <p class="text-center mt-3">Don't have an account? <a class="text-success" href="{% url 'register' %}">Register</a></p>
         </div>
     </div>
 </div>
